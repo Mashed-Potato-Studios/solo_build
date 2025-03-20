@@ -22,20 +22,20 @@ You can install Solo Build globally or as a project dependency.
 
 ```bash
 # Using npm
-npm install -g @solo-build/cli
+npm install -g @mps/solo-build
 
 # Using yarn
-yarn global add @solo-build/cli
+yarn global add @mps/solo-build
 ```
 
 ### Project Installation
 
 ```bash
 # Using npm
-npm install --save-dev @solo-build/cli
+npm i @mps/solo-build
 
 # Using yarn
-yarn add --dev @solo-build/cli
+yarn add @mps/solo-build
 ```
 
 ## Quick Start
