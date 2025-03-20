@@ -1,216 +1,219 @@
 <template>
-  <div class="py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Examples</h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          See how Solo Build can be used in different scenarios to optimize your development workflow.
-        </p>
-      </div>
+  <div>
+    <NuxtPage v-if="$route.path !== '/examples'" />
+    <div v-else class="py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Examples</h1>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            See how Solo Build can be used in different scenarios to optimize your development workflow.
+          </p>
+        </div>
 
-      <!-- Example Tabs -->
-      <UTabs :items="tabs" class="mb-16">
-        <template #item="{ item }">
-          <div class="p-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div>
-                <h3 class="text-2xl font-bold mb-4">{{ item.description }}</h3>
-                <p class="mb-4">{{ item.details }}</p>
-                <div class="space-y-4">
-                  <div v-for="(step, index) in item.steps" :key="index" class="flex">
-                    <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold">
-                      {{ index + 1 }}
-                    </div>
-                    <div class="ml-4">
-                      <h4 class="text-lg font-semibold mb-1">{{ step.title }}</h4>
-                      <p class="text-gray-600 dark:text-gray-400">{{ step.description }}</p>
+        <!-- Example Tabs -->
+        <UTabs :items="tabs" class="mb-16">
+          <template #item="{ item }">
+            <div class="p-4">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="text-2xl font-bold mb-4">{{ item.description }}</h3>
+                  <p class="mb-4">{{ item.details }}</p>
+                  <div class="space-y-4">
+                    <div v-for="(step, index) in item.steps" :key="index" class="flex">
+                      <div class="flex-shrink-0 h-8 w-8 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold">
+                        {{ index + 1 }}
+                      </div>
+                      <div class="ml-4">
+                        <h4 class="text-lg font-semibold mb-1">{{ step.title }}</h4>
+                        <p class="text-gray-600 dark:text-gray-400">{{ step.description }}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div>
-                <UCard>
-                  <template #header>
-                    <div class="flex items-center justify-between">
-                      <h4 class="text-lg font-semibold">{{ item.codeTitle }}</h4>
-                      <UButton
-                        icon="i-heroicons-clipboard"
-                        color="gray"
-                        variant="ghost"
-                        size="xs"
-                        @click="copyCode(item.code)"
-                      >
-                        Copy
-                      </UButton>
-                    </div>
-                  </template>
-                  <pre class="text-sm bg-gray-50 dark:bg-gray-800 p-4 rounded-md overflow-x-auto"><code>{{ item.code }}</code></pre>
-                </UCard>
-                <div class="mt-6">
+                <div>
                   <UCard>
                     <template #header>
                       <div class="flex items-center justify-between">
-                        <h4 class="text-lg font-semibold">Output</h4>
+                        <h4 class="text-lg font-semibold">{{ item.codeTitle }}</h4>
+                        <UButton
+                          icon="i-heroicons-clipboard"
+                          color="gray"
+                          variant="ghost"
+                          size="xs"
+                          @click="copyCode(item.code)"
+                        >
+                          Copy
+                        </UButton>
                       </div>
                     </template>
-                    <pre class="text-sm bg-gray-50 dark:bg-gray-800 p-4 rounded-md overflow-x-auto"><code>{{ item.output }}</code></pre>
+                    <pre class="text-sm bg-gray-50 dark:bg-gray-800 p-4 rounded-md overflow-x-auto"><code>{{ item.code }}</code></pre>
                   </UCard>
+                  <div class="mt-6">
+                    <UCard>
+                      <template #header>
+                        <div class="flex items-center justify-between">
+                          <h4 class="text-lg font-semibold">Output</h4>
+                        </div>
+                      </template>
+                      <pre class="text-sm bg-gray-50 dark:bg-gray-800 p-4 rounded-md overflow-x-auto"><code>{{ item.output }}</code></pre>
+                    </UCard>
+                  </div>
                 </div>
               </div>
             </div>
+          </template>
+        </UTabs>
+
+        <!-- Real-World Examples -->
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold text-center mb-8">Real-World Examples</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <UCard>
+              <template #header>
+                <div class="flex items-center">
+                  <UIcon name="i-simple-icons-react" class="h-6 w-6 text-primary-500 mr-3" />
+                  <h3 class="text-xl font-semibold">React Application</h3>
+                </div>
+              </template>
+              <p class="mb-4">
+                Optimize a React application with Solo Build for improved performance and code quality.
+              </p>
+              <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
+                <li>Automatic JSX optimization</li>
+                <li>React-specific code analysis</li>
+                <li>Component dependency tracking</li>
+                <li>Performance optimization suggestions</li>
+              </ul>
+              <UButton
+                to="/examples/react"
+                variant="ghost"
+                size="sm"
+                class="mt-2"
+              >
+                View Example
+              </UButton>
+            </UCard>
+
+            <UCard>
+              <template #header>
+                <div class="flex items-center">
+                  <UIcon name="i-simple-icons-vuedotjs" class="h-6 w-6 text-primary-500 mr-3" />
+                  <h3 class="text-xl font-semibold">Vue.js Application</h3>
+                </div>
+              </template>
+              <p class="mb-4">
+                Build and analyze a Vue.js application with Solo Build for better maintainability.
+              </p>
+              <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
+                <li>Vue SFC compilation</li>
+                <li>Component relationship analysis</li>
+                <li>Vue-specific optimizations</li>
+                <li>Template analysis for performance</li>
+              </ul>
+              <UButton
+                to="/examples/vue"
+                variant="ghost"
+                size="sm"
+                class="mt-2"
+              >
+                View Example
+              </UButton>
+            </UCard>
+
+            <UCard>
+              <template #header>
+                <div class="flex items-center">
+                  <UIcon name="i-simple-icons-nodedotjs" class="h-6 w-6 text-primary-500 mr-3" />
+                  <h3 class="text-xl font-semibold">Node.js Library</h3>
+                </div>
+              </template>
+              <p class="mb-4">
+                Build a Node.js library with Solo Build for optimal compatibility and performance.
+              </p>
+              <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
+                <li>Multi-format output (CJS, ESM)</li>
+                <li>API documentation generation</li>
+                <li>Package size optimization</li>
+                <li>Dependency analysis</li>
+              </ul>
+              <UButton
+                to="/examples/node"
+                variant="ghost"
+                size="sm"
+                class="mt-2"
+              >
+                View Example
+              </UButton>
+            </UCard>
           </div>
-        </template>
-      </UTabs>
+        </div>
 
-      <!-- Real-World Examples -->
-      <div class="mb-16">
-        <h2 class="text-3xl font-bold text-center mb-8">Real-World Examples</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Community Examples -->
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold text-center mb-8">Community Examples</h2>
           <UCard>
             <template #header>
-              <div class="flex items-center">
-                <UIcon name="i-simple-icons-react" class="h-6 w-6 text-primary-500 mr-3" />
-                <h3 class="text-xl font-semibold">React Application</h3>
-              </div>
+              <h3 class="text-xl font-semibold">Share Your Examples</h3>
             </template>
             <p class="mb-4">
-              Optimize a React application with Solo Build for improved performance and code quality.
+              Have you used Solo Build in an interesting way? Share your examples with the community!
             </p>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
-              <li>Automatic JSX optimization</li>
-              <li>React-specific code analysis</li>
-              <li>Component dependency tracking</li>
-              <li>Performance optimization suggestions</li>
-            </ul>
-            <UButton
-              to="/examples/react"
-              variant="ghost"
-              size="sm"
-              class="mt-2"
-            >
-              View Example
-            </UButton>
-          </UCard>
-
-          <UCard>
-            <template #header>
-              <div class="flex items-center">
-                <UIcon name="i-simple-icons-vuedotjs" class="h-6 w-6 text-primary-500 mr-3" />
-                <h3 class="text-xl font-semibold">Vue.js Application</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <h4 class="font-semibold mb-2">How to Contribute</h4>
+                <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li>Fork the Solo Build repository</li>
+                  <li>Add your example to the examples directory</li>
+                  <li>Submit a pull request</li>
+                  <li>We'll review and merge your example</li>
+                </ol>
               </div>
-            </template>
-            <p class="mb-4">
-              Build and analyze a Vue.js application with Solo Build for better maintainability.
-            </p>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
-              <li>Vue SFC compilation</li>
-              <li>Component relationship analysis</li>
-              <li>Vue-specific optimizations</li>
-              <li>Template analysis for performance</li>
-            </ul>
-            <UButton
-              to="/examples/vue"
-              variant="ghost"
-              size="sm"
-              class="mt-2"
-            >
-              View Example
-            </UButton>
-          </UCard>
-
-          <UCard>
-            <template #header>
-              <div class="flex items-center">
-                <UIcon name="i-simple-icons-nodedotjs" class="h-6 w-6 text-primary-500 mr-3" />
-                <h3 class="text-xl font-semibold">Node.js Library</h3>
+              <div>
+                <h4 class="font-semibold mb-2">Example Requirements</h4>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li>Clear documentation</li>
+                  <li>Working configuration</li>
+                  <li>Demonstrates a specific use case</li>
+                  <li>Follows best practices</li>
+                </ul>
               </div>
-            </template>
-            <p class="mb-4">
-              Build a Node.js library with Solo Build for optimal compatibility and performance.
-            </p>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
-              <li>Multi-format output (CJS, ESM)</li>
-              <li>API documentation generation</li>
-              <li>Package size optimization</li>
-              <li>Dependency analysis</li>
-            </ul>
+            </div>
             <UButton
-              to="/examples/node"
-              variant="ghost"
-              size="sm"
-              class="mt-2"
+              to="https://github.com/Mashed-Potato-Studios/solo_build/tree/main/examples"
+              target="_blank"
+              color="primary"
             >
-              View Example
+              View Examples Repository
             </UButton>
           </UCard>
         </div>
-      </div>
 
-      <!-- Community Examples -->
-      <div class="mb-16">
-        <h2 class="text-3xl font-bold text-center mb-8">Community Examples</h2>
-        <UCard>
-          <template #header>
-            <h3 class="text-xl font-semibold">Share Your Examples</h3>
-          </template>
-          <p class="mb-4">
-            Have you used Solo Build in an interesting way? Share your examples with the community!
+        <!-- CTA -->
+        <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-8 text-center">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Ready to Try Solo Build?
+          </h2>
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+            Get started with Solo Build today and see how it can improve your development workflow.
           </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <div>
-              <h4 class="font-semibold mb-2">How to Contribute</h4>
-              <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
-                <li>Fork the Solo Build repository</li>
-                <li>Add your example to the examples directory</li>
-                <li>Submit a pull request</li>
-                <li>We'll review and merge your example</li>
-              </ol>
-            </div>
-            <div>
-              <h4 class="font-semibold mb-2">Example Requirements</h4>
-              <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
-                <li>Clear documentation</li>
-                <li>Working configuration</li>
-                <li>Demonstrates a specific use case</li>
-                <li>Follows best practices</li>
-              </ul>
-            </div>
+          <div class="flex flex-wrap justify-center gap-4">
+            <UButton
+              to="/docs/getting-started"
+              size="lg"
+              color="primary"
+            >
+              Get Started
+            </UButton>
+            <UButton
+              to="https://github.com/Mashed-Potato-Studios/solo_build"
+              target="_blank"
+              size="lg"
+              variant="outline"
+            >
+              <UIcon name="i-simple-icons-github" class="mr-2" />
+              GitHub
+            </UButton>
           </div>
-          <UButton
-            to="https://github.com/Mashed-Potato-Studios/solo_build/tree/main/examples"
-            target="_blank"
-            color="primary"
-          >
-            View Examples Repository
-          </UButton>
-        </UCard>
-      </div>
-
-      <!-- CTA -->
-      <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-8 text-center">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-          Ready to Try Solo Build?
-        </h2>
-        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
-          Get started with Solo Build today and see how it can improve your development workflow.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <UButton
-            to="/docs/getting-started"
-            size="lg"
-            color="primary"
-          >
-            Get Started
-          </UButton>
-          <UButton
-            to="https://github.com/Mashed-Potato-Studios/solo_build"
-            target="_blank"
-            size="lg"
-            variant="outline"
-          >
-            <UIcon name="i-simple-icons-github" class="mr-2" />
-            GitHub
-          </UButton>
         </div>
       </div>
     </div>
@@ -218,6 +221,9 @@
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 const tabs = [
   {
     label: 'Basic Configuration',
@@ -446,6 +452,5 @@ module.exports = {
 
 function copyCode(code) {
   navigator.clipboard.writeText(code);
-  // You could add a toast notification here
 }
 </script>

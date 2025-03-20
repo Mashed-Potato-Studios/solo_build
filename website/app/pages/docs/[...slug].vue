@@ -30,8 +30,18 @@
                 block
                 variant="ghost"
                 class="justify-start"
+                :class="{ 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400': isActive('configuration') }"
               >
                 Configuration
+              </UButton>
+              <UButton
+                to="/docs/architecture"
+                block
+                variant="ghost"
+                class="justify-start"
+                :class="{ 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400': isActive('architecture') }"
+              >
+                Architecture
               </UButton>
               <h4 class="font-medium text-sm text-gray-500 dark:text-gray-400 py-2 px-3">
                 Core Components
@@ -99,40 +109,45 @@
               >
                 Reporter
               </UButton>
+
               <h4 class="font-medium text-sm text-gray-500 dark:text-gray-400 py-2 px-3">
                 CLI Commands
               </h4>
               <UButton
-                to="/docs/cli/run"
+                to="/docs/cli-run"
                 block
                 variant="ghost"
                 class="justify-start"
+                :class="{ 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400': isActive('cli-run') }"
               >
-                Run
+                Run Command
               </UButton>
               <UButton
-                to="/docs/cli/init"
+                to="/docs/cli-init"
                 block
                 variant="ghost"
                 class="justify-start"
+                :class="{ 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400': isActive('cli-init') }"
               >
-                Init
+                Init Command
               </UButton>
               <UButton
-                to="/docs/cli/analyze"
+                to="/docs/cli-analyze"
                 block
                 variant="ghost"
                 class="justify-start"
+                :class="{ 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400': isActive('cli-analyze') }"
               >
-                Analyze
+                Analyze Command
               </UButton>
               <UButton
-                to="/docs/cli/workflow"
+                to="/docs/cli-workflow"
                 block
                 variant="ghost"
                 class="justify-start"
+                :class="{ 'bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400': isActive('cli-workflow') }"
               >
-                Workflow
+                Workflow Command
               </UButton>
             </div>
           </UCard>
@@ -235,6 +250,7 @@ const docPages = [
   { path: '/docs', title: 'Overview' },
   { path: '/docs/getting-started', title: 'Getting Started' },
   { path: '/docs/configuration', title: 'Configuration' },
+  { path: '/docs/architecture', title: 'Architecture' },
   { path: '/docs/parser', title: 'Parser' },
   { path: '/docs/analyzer', title: 'Analyzer' },
   { path: '/docs/transformer', title: 'Transformer' },
@@ -242,10 +258,10 @@ const docPages = [
   { path: '/docs/workflow', title: 'Workflow Engine' },
   { path: '/docs/task-runner', title: 'Task Runner' },
   { path: '/docs/reporter', title: 'Reporter' },
-  { path: '/docs/cli/run', title: 'Run Command' },
-  { path: '/docs/cli/init', title: 'Init Command' },
-  { path: '/docs/cli/analyze', title: 'Analyze Command' },
-  { path: '/docs/cli/workflow', title: 'Workflow Command' },
+  { path: '/docs/cli-run', title: 'Run Command' },
+  { path: '/docs/cli-init', title: 'Init Command' },
+  { path: '/docs/cli-analyze', title: 'Analyze Command' },
+  { path: '/docs/cli-workflow', title: 'Workflow Command' },
 ];
 
 // Get current page index

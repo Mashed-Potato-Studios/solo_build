@@ -232,6 +232,71 @@ module.exports = {
       </div>
     </section>
 
+    <!-- Built With Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-purple-900 dark:text-white mb-4">
+            Built With Industry-Leading Tools
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Solo Build leverages the best open-source technologies to provide a powerful and flexible build system.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center">
+          <div class="flex flex-col items-center">
+            <img src="/images/UnJS Logo Black.png" alt="UnJS" class="h-16 dark:invert mb-4">
+            <p class="text-center font-medium">UnJS</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Core Ecosystem</p>
+          </div>
+          
+          <div class="flex flex-col items-center">
+            <img src="/images/Design Kit Citty.svg" alt="Citty" class="h-16 mb-4">
+            <p class="text-center font-medium">Citty</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 text-center">CLI Framework</p>
+          </div>
+          
+          <div class="flex flex-col items-center">
+            <img src="/images/Design Kit Consola.svg" alt="Consola" class="h-16 mb-4">
+            <p class="text-center font-medium">Consola</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Elegant Console Logger</p>
+          </div>
+          
+          <div class="flex flex-col items-center">
+            <img src="/images/Design Kit defu.svg" alt="Defu" class="h-16 mb-4">
+            <p class="text-center font-medium">Defu</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Config Merging</p>
+          </div>
+          
+          <div class="flex flex-col items-center">
+            <img src="/images/Design Kit pkg types.svg" alt="pkg-types" class="h-16 mb-4">
+            <p class="text-center font-medium">pkg-types</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Package Utilities</p>
+          </div>
+          
+          <div class="flex flex-col items-center">
+            <img src="/images/Round Bubbles from JavaScript Oxidation Compiler.png" alt="oxc" class="h-16 mb-4">
+            <p class="text-center font-medium">oxc</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400 text-center">JavaScript Parser</p>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <p class="text-gray-600 dark:text-gray-300">
+            Solo Build combines these powerful tools with our own innovations to create a seamless development experience.
+          </p>
+          <UButton
+            to="/docs/architecture"
+            variant="ghost"
+            class="mt-4"
+          >
+            Learn More About Our Architecture
+          </UButton>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
