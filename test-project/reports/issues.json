@@ -1,0 +1,39 @@
+{
+  "/Users/vantolbennett/Developer/Mashed_Potato_Studios/v4-beta/solo_build/test-project/src/utils.ts": [
+    {
+      "type": "info",
+      "message": "Console statement found",
+      "file": "/Users/vantolbennett/Developer/Mashed_Potato_Studios/v4-beta/solo_build/test-project/src/utils.ts",
+      "line": 45,
+      "column": 2,
+      "code": "no-console"
+    }
+  ],
+  "/Users/vantolbennett/Developer/Mashed_Potato_Studios/v4-beta/solo_build/test-project/src/types.ts": [],
+  "/Users/vantolbennett/Developer/Mashed_Potato_Studios/v4-beta/solo_build/test-project/src/index.ts": [
+    {
+      "type": "info",
+      "message": "Console statement found",
+      "file": "/Users/vantolbennett/Developer/Mashed_Potato_Studios/v4-beta/solo_build/test-project/src/index.ts",
+      "line": 22,
+      "column": 2,
+      "code": "no-console"
+    },
+    {
+      "type": "info",
+      "message": "Console statement found",
+      "file": "/Users/vantolbennett/Developer/Mashed_Potato_Studios/v4-beta/solo_build/test-project/src/index.ts",
+      "line": 23,
+      "column": 2,
+      "code": "no-console"
+    },
+    {
+      "type": "info",
+      "message": "Console statement found",
+      "file": "/Users/vantolbennett/Developer/Mashed_Potato_Studios/v4-beta/solo_build/test-project/src/index.ts",
+      "line": 26,
+      "column": 4,
+      "code": "no-console"
+    }
+  ]
+}

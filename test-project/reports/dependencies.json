@@ -1,0 +1,10 @@
+{
+  "/Users/vantolbennett/Developer/Mashed_Potato_Studios/v4-beta/solo_build/test-project/src/utils.ts": [
+    "./types"
+  ],
+  "/Users/vantolbennett/Developer/Mashed_Potato_Studios/v4-beta/solo_build/test-project/src/types.ts": [],
+  "/Users/vantolbennett/Developer/Mashed_Potato_Studios/v4-beta/solo_build/test-project/src/index.ts": [
+    "./utils",
+    "./types"
+  ]
+}
