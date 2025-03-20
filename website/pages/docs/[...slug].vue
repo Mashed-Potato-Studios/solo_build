@@ -276,7 +276,7 @@ const editUrl = computed(() => {
     ? route.params.slug.join('/') 
     : route.params.slug;
     
-  return `https://github.com/mashed-potato-studios/solo-build/edit/main/docs/${slug}.md`;
+  return `https://github.com/Mashed-Potato-Studios/solo_build/edit/main/docs/${slug}.md`;
 });
 
 // Check if current route matches a specific doc

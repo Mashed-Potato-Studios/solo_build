@@ -25,7 +25,7 @@
                 </template>
               </UButton>
               <UButton
-                to="https://github.com/mashed-potato-studios/solo-build"
+                to="https://github.com/Mashed-Potato-Studios/solo_build"
                 target="_blank"
                 size="lg"
                 variant="outline"
@@ -250,7 +250,7 @@ module.exports = {
             Get Started
           </UButton>
           <UButton
-            to="https://github.com/mashed-potato-studios/solo-build"
+            to="https://github.com/Mashed-Potato-Studios/solo_build"
             target="_blank"
             size="lg"
             variant="outline"

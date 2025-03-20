@@ -41,4 +41,4 @@ Solo Build provides a powerful CLI for interacting with the build system:
 
 ## Contributing
 
-Solo Build is an open-source project, and we welcome contributions from the community. Please see our [Contributing Guide](https://github.com/solo-build/solo-build/blob/main/CONTRIBUTING.md) for more information.
+Solo Build is an open-source project, and we welcome contributions from the community. Please see our [Contributing Guide](https://github.com/Mashed-Potato-Studios/solo_build/blob/main/CONTRIBUTING.md) for more information.

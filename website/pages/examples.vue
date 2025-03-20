@@ -177,7 +177,7 @@
             </div>
           </div>
           <UButton
-            to="https://github.com/mashed-potato-studios/solo-build/tree/main/examples"
+            to="https://github.com/Mashed-Potato-Studios/solo_build/tree/main/examples"
             target="_blank"
             color="primary"
           >
@@ -203,7 +203,7 @@
             Get Started
           </UButton>
           <UButton
-            to="https://github.com/mashed-potato-studios/solo-build"
+            to="https://github.com/Mashed-Potato-Studios/solo_build"
             target="_blank"
             size="lg"
             variant="outline"
