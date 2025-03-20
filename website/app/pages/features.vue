@@ -2,7 +2,7 @@
   <div class="py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Features</h1>
+        <h1 class="text-4xl font-bold text-purple-900 dark:text-white mb-4">Features</h1>
         <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           Discover the powerful features that make Solo Build the ultimate build system for JavaScript and TypeScript projects.
         </p>
@@ -13,7 +13,7 @@
         <UCard class="h-full">
           <template #header>
             <div class="flex items-center">
-              <UIcon name="i-heroicons-code-bracket" class="h-8 w-8 text-primary-500 mr-4" />
+              <UIcon name="i-heroicons-code-bracket" class="h-8 w-8 text-purple-500 mr-4" />
               <h2 class="text-2xl font-bold">TypeScript/JavaScript Support</h2>
             </div>
           </template>
@@ -35,9 +35,9 @@
         <UCard class="h-full">
           <template #header>
             <div class="flex items-center">
-              <UIcon name="i-heroicons-cpu-chip" class="h-8 w-8 text-primary-500 mr-4" />
+              <UIcon name="i-heroicons-cpu-chip" class="h-8 w-8 text-purple-500 mr-4" />
               <h2 class="text-2xl font-bold">AI-Powered Analysis</h2>
-              <UBadge color="gray" size="sm" class="ml-2">Coming Soon</UBadge>
+              <UBadge color="neutral" size="sm" class="ml-2">Coming Soon</UBadge>
             </div>
           </template>
           <div class="space-y-4">
@@ -61,7 +61,7 @@
         <UCard class="h-full">
           <template #header>
             <div class="flex items-center">
-              <UIcon name="i-heroicons-command-line" class="h-6 w-6 text-primary-500 mr-3" />
+              <UIcon name="i-heroicons-command-line" class="h-6 w-6 text-purple-500 mr-3" />
               <h3 class="text-xl font-semibold">Workflow System</h3>
             </div>
           </template>
@@ -82,7 +82,7 @@
         <UCard class="h-full">
           <template #header>
             <div class="flex items-center">
-              <UIcon name="i-heroicons-chart-bar" class="h-6 w-6 text-primary-500 mr-3" />
+              <UIcon name="i-heroicons-chart-bar" class="h-6 w-6 text-purple-500 mr-3" />
               <h3 class="text-xl font-semibold">Code Analysis</h3>
             </div>
           </template>
@@ -104,7 +104,7 @@
         <UCard class="h-full">
           <template #header>
             <div class="flex items-center">
-              <UIcon name="i-heroicons-puzzle-piece" class="h-6 w-6 text-primary-500 mr-3" />
+              <UIcon name="i-heroicons-puzzle-piece" class="h-6 w-6 text-purple-500 mr-3" />
               <h3 class="text-xl font-semibold">Framework Detection</h3>
             </div>
           </template>
@@ -125,7 +125,7 @@
         <UCard class="h-full">
           <template #header>
             <div class="flex items-center">
-              <UIcon name="i-heroicons-cube" class="h-6 w-6 text-primary-500 mr-3" />
+              <UIcon name="i-heroicons-cube" class="h-6 w-6 text-purple-500 mr-3" />
               <h3 class="text-xl font-semibold">Extensible</h3>
             </div>
           </template>
@@ -146,7 +146,7 @@
         <UCard class="h-full">
           <template #header>
             <div class="flex items-center">
-              <UIcon name="i-heroicons-bolt" class="h-6 w-6 text-primary-500 mr-3" />
+              <UIcon name="i-heroicons-bolt" class="h-6 w-6 text-purple-500 mr-3" />
               <h3 class="text-xl font-semibold">Performance</h3>
             </div>
           </template>
@@ -167,7 +167,7 @@
         <UCard class="h-full">
           <template #header>
             <div class="flex items-center">
-              <UIcon name="i-heroicons-document-text" class="h-6 w-6 text-primary-500 mr-3" />
+              <UIcon name="i-heroicons-document-text" class="h-6 w-6 text-purple-500 mr-3" />
               <h3 class="text-xl font-semibold">Reporting</h3>
             </div>
           </template>
@@ -268,8 +268,8 @@
       </div>
 
       <!-- CTA -->
-      <div class="bg-primary-50 dark:bg-primary-900 rounded-lg p-8 text-center">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+      <div class="bg-purple-50 dark:bg-purple-900 rounded-lg p-8 text-center">
+        <h2 class="text-2xl font-bold text-purple-900 dark:text-white mb-4">
           Ready to Experience These Features?
         </h2>
         <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
@@ -279,7 +279,7 @@
           <UButton
             to="/docs/getting-started"
             size="lg"
-            color="primary"
+            class="bg-purple-500 text-white hover:bg-purple-600"
           >
             Get Started
           </UButton>
@@ -287,7 +287,7 @@
             to="https://github.com/Mashed-Potato-Studios/solo_build"
             target="_blank"
             size="lg"
-            variant="outline"
+            class="bg-purple-500 text-white hover:bg-purple-600"
           >
             <UIcon name="i-simple-icons-github" class="mr-2" />
             GitHub

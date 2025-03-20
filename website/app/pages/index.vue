@@ -1,11 +1,11 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-purple-100 dark:from-gray-900 dark:to-gray-800">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 class="text-4xl sm:text-5xl font-bold text-purple-900 dark:text-white mb-6">
               AI-Powered Build System for Modern JavaScript
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
@@ -17,7 +17,7 @@
               <UButton
                 to="/docs/getting-started"
                 size="lg"
-                color="primary"
+                class="bg-purple-500 text-white hover:bg-purple-600"
               >
                 Get Started
                 <template #trailing>
@@ -28,7 +28,7 @@
                 to="https://github.com/Mashed-Potato-Studios/solo_build"
                 target="_blank"
                 size="lg"
-                variant="outline"
+                class="bg-purple-500 text-white hover:bg-purple-600"
               >
                 <UIcon name="i-simple-icons-github" class="mr-2" />
                 GitHub
@@ -56,7 +56,7 @@ module.exports = {
 };</code>
               </pre>
             </div>
-            <div class="absolute -bottom-6 -right-6 bg-primary-500 text-white px-4 py-2 rounded-full shadow-lg">
+            <div class="absolute -bottom-6 -right-6 bg-purple-500 text-white px-4 py-2 rounded-full shadow-lg">
               Simple Configuration
             </div>
           </div>
@@ -68,7 +68,7 @@ module.exports = {
     <section class="py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 class="text-3xl font-bold text-purple-900 dark:text-white mb-4">
             Powerful Features
           </h2>
           <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -80,8 +80,8 @@ module.exports = {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <UCard>
             <template #header>
-              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-100 dark:bg-primary-900 mx-auto">
-                <UIcon name="i-heroicons-code-bracket" class="h-8 w-8 text-primary-500" />
+              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 dark:bg-purple-900 mx-auto">
+                <UIcon name="i-heroicons-code-bracket" class="h-8 w-8 text-purple-500" />
               </div>
             </template>
             <template #title>
@@ -95,12 +95,12 @@ module.exports = {
 
           <UCard>
             <template #header>
-              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-100 dark:bg-primary-900 mx-auto">
-                <UIcon name="i-heroicons-cpu-chip" class="h-8 w-8 text-primary-500" />
+              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 dark:bg-purple-900 mx-auto">
+                <UIcon name="i-heroicons-cpu-chip" class="h-8 w-8 text-purple-500" />
               </div>
             </template>
             <template #title>
-              AI-Powered Analysis <UBadge color="gray" size="sm">Coming Soon</UBadge>
+              AI-Powered Analysis <UBadge color="neutral" size="sm">Coming Soon</UBadge>
             </template>
             <p>
               Get architectural insights and optimization suggestions powered by advanced AI models
@@ -110,8 +110,8 @@ module.exports = {
 
           <UCard>
             <template #header>
-              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-100 dark:bg-primary-900 mx-auto">
-                <UIcon name="i-heroicons-command-line" class="h-8 w-8 text-primary-500" />
+              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 dark:bg-purple-900 mx-auto">
+                <UIcon name="i-heroicons-command-line" class="h-8 w-8 text-purple-500" />
               </div>
             </template>
             <template #title>
@@ -125,8 +125,8 @@ module.exports = {
 
           <UCard>
             <template #header>
-              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-100 dark:bg-primary-900 mx-auto">
-                <UIcon name="i-heroicons-chart-bar" class="h-8 w-8 text-primary-500" />
+              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 dark:bg-purple-900 mx-auto">
+                <UIcon name="i-heroicons-chart-bar" class="h-8 w-8 text-purple-500" />
               </div>
             </template>
             <template #title>
@@ -140,8 +140,8 @@ module.exports = {
 
           <UCard>
             <template #header>
-              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-100 dark:bg-primary-900 mx-auto">
-                <UIcon name="i-heroicons-puzzle-piece" class="h-8 w-8 text-primary-500" />
+              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 dark:bg-purple-900 mx-auto">
+                <UIcon name="i-heroicons-puzzle-piece" class="h-8 w-8 text-purple-500" />
               </div>
             </template>
             <template #title>
@@ -155,8 +155,8 @@ module.exports = {
 
           <UCard>
             <template #header>
-              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-100 dark:bg-primary-900 mx-auto">
-                <UIcon name="i-heroicons-cube" class="h-8 w-8 text-primary-500" />
+              <div class="flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 dark:bg-purple-900 mx-auto">
+                <UIcon name="i-heroicons-cube" class="h-8 w-8 text-purple-500" />
               </div>
             </template>
             <template #title>
@@ -175,7 +175,7 @@ module.exports = {
     <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 class="text-3xl font-bold text-purple-900 dark:text-white mb-4">
             How It Works
           </h2>
           <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -186,7 +186,7 @@ module.exports = {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
             <div class="flex items-center mb-4">
-              <div class="flex items-center justify-center h-10 w-10 rounded-full bg-primary-500 text-white font-bold">
+              <div class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-500 text-white font-bold">
                 1
               </div>
               <h3 class="ml-4 text-xl font-semibold text-gray-900 dark:text-white">
@@ -201,7 +201,7 @@ module.exports = {
 
           <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
             <div class="flex items-center mb-4">
-              <div class="flex items-center justify-center h-10 w-10 rounded-full bg-primary-500 text-white font-bold">
+              <div class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-500 text-white font-bold">
                 2
               </div>
               <h3 class="ml-4 text-xl font-semibold text-gray-900 dark:text-white">
@@ -216,7 +216,7 @@ module.exports = {
 
           <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
             <div class="flex items-center mb-4">
-              <div class="flex items-center justify-center h-10 w-10 rounded-full bg-primary-500 text-white font-bold">
+              <div class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-500 text-white font-bold">
                 3
               </div>
               <h3 class="ml-4 text-xl font-semibold text-gray-900 dark:text-white">
@@ -235,7 +235,7 @@ module.exports = {
     <!-- CTA Section -->
     <section class="py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 class="text-3xl font-bold text-purple-900 dark:text-white mb-6">
           Ready to Supercharge Your Build Process?
         </h2>
         <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
@@ -245,7 +245,7 @@ module.exports = {
           <UButton
             to="/docs/getting-started"
             size="lg"
-            color="primary"
+            class="bg-purple-500 text-white hover:bg-purple-600"
           >
             Get Started
           </UButton>
@@ -253,7 +253,7 @@ module.exports = {
             to="https://github.com/Mashed-Potato-Studios/solo_build"
             target="_blank"
             size="lg"
-            variant="outline"
+            class="bg-purple-500 text-white hover:bg-purple-600"
           >
             <UIcon name="i-simple-icons-github" class="mr-2" />
             Star on GitHub

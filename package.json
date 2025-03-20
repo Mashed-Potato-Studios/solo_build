@@ -1,10 +1,10 @@
 {
-  "name": "solo_build",
-  "version": "1.0.0",
+  "name": "@mps/solo-build",
+  "version": "0.1.0",
   "description": "AI-powered build system with architectural awareness and CI capabilities",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "bin": {
-    "solo-build": "./dist/cli.js"
+    "solo-build": "dist/src/cli.js"
   },
   "scripts": {
     "build": "tsc",
@@ -12,18 +12,40 @@
     "dev": "ts-node src/index.ts",
     "cli": "ts-node src/cli.ts",
     "test": "jest",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "build",
     "ci",
     "ai",
     "automation",
-    "oxc"
+    "oxc",
+    "typescript",
+    "javascript",
+    "analyzer",
+    "parser",
+    "workflow"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Mashed Potato Studios",
+  "license": "MIT",
   "type": "commonjs",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mashed-Potato-Studios/solo_build.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mashed-Potato-Studios/solo_build/issues"
+  },
+  "homepage": "https://github.com/Mashed-Potato-Studios/solo_build#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/babel__traverse": "^7.20.1",
     "@types/consola": "^2.2.5",

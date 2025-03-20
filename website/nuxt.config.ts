@@ -1,11 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   compatibilityDate: '2024-11-01',
+  future: {
+    compatibilityVersion: 4
+  },
   devtools: { enabled: true },
-  modules: [
-    '@nuxt/ui-pro',
-    '@nuxt/content'
-  ],
-  css: ['~/assets/css/main.css']
-
+  modules: ['@nuxt/ui-pro', '@nuxt/content', '@nuxthub/core', '@nuxt/image'],
+  css: ['~/assets/css/main.css'],
+  colorMode: {
+    preference: 'light',
+    fallback: 'light'
+  }
 })

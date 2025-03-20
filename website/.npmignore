@@ -1,0 +1,36 @@
+# Development files
+node_modules/
+.nuxt/
+.output/server/
+.output/nitro.json
+.github/
+.vscode/
+.idea/
+.DS_Store
+
+# Source files (since we're only publishing the built site)
+assets/
+components/
+composables/
+layouts/
+middleware/
+pages/
+plugins/
+public/
+server/
+utils/
+
+# Config files
+.eslintrc
+.prettierrc
+tsconfig.json
+nuxt.config.ts
+
+# Development scripts and logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Keep the generated static site
+!.output/public/
