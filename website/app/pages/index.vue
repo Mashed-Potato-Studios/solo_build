@@ -246,37 +246,37 @@ module.exports = {
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center">
           <div class="flex flex-col items-center">
-            <img src="/images/UnJS Logo Black.png" alt="UnJS" class="h-16 dark:invert mb-4">
+            <NuxtImg src="/images/UnJSLogoBlack.png" alt="UnJS" class="h-16 dark:invert mb-4"/>
             <p class="text-center font-medium">UnJS</p>
             <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Core Ecosystem</p>
           </div>
           
           <div class="flex flex-col items-center">
-            <img src="/images/Design Kit Citty.svg" alt="Citty" class="h-16 mb-4">
+            <NuxtImg src="/images/DesignKitCitty.svg" alt="Citty" class="h-16 mb-4"/>
             <p class="text-center font-medium">Citty</p>
             <p class="text-sm text-gray-500 dark:text-gray-400 text-center">CLI Framework</p>
           </div>
           
           <div class="flex flex-col items-center">
-            <img src="/images/Design Kit Consola.svg" alt="Consola" class="h-16 mb-4">
+            <NuxtImg src="/images/DesignKitConsola.svg" alt="Consola" class="h-16 mb-4"/>
             <p class="text-center font-medium">Consola</p>
             <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Elegant Console Logger</p>
           </div>
           
           <div class="flex flex-col items-center">
-            <img src="/images/Design Kit defu.svg" alt="Defu" class="h-16 mb-4">
+            <NuxtImg src="/images/DesignKitdefu.svg" alt="Defu" class="h-16 mb-4"/>
             <p class="text-center font-medium">Defu</p>
             <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Config Merging</p>
           </div>
           
           <div class="flex flex-col items-center">
-            <img src="/images/Design Kit pkg types.svg" alt="pkg-types" class="h-16 mb-4">
+            <NuxtImg src="/images/DesignKitpkgtypes.svg" alt="pkg-types" class="h-16 mb-4"/>
             <p class="text-center font-medium">pkg-types</p>
             <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Package Utilities</p>
           </div>
           
           <div class="flex flex-col items-center">
-            <img src="/images/Round Bubbles from JavaScript Oxidation Compiler.png" alt="oxc" class="h-16 mb-4">
+            <NuxtImg src="/images/RoundBubblesfromJavaScriptOxidationCompiler.png" alt="oxc" class="h-16 mb-4"/>
             <p class="text-center font-medium">oxc</p>
             <p class="text-sm text-gray-500 dark:text-gray-400 text-center">JavaScript Parser</p>
           </div>

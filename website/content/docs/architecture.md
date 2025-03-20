@@ -33,7 +33,7 @@ Solo Build is built on top of several powerful open-source technologies:
 ### UnJS Ecosystem
 
 <div class="flex items-center mb-4">
-  <img src="/images/UnJS Logo Black.png" alt="UnJS" class="h-12 dark:invert mr-4">
+  <NuxtImg src="/images/UnJS Logo Black.png" alt="UnJS" class="h-12 dark:invert mr-4">
   <div>
     <h4 class="font-semibold">UnJS</h4>
     <p>A collection of JavaScript/TypeScript libraries designed for high-performance and developer-friendly experiences.</p>
@@ -45,7 +45,7 @@ The UnJS ecosystem provides the foundation for Solo Build, offering a cohesive s
 ### Citty
 
 <div class="flex items-center mb-4">
-  <img src="/images/Design Kit Citty.svg" alt="Citty" class="h-12 mr-4">
+  <NuxtImg src="/images/DesignKitCitty.svg" alt="Citty" class="h-12 mr-4"/>
   <div>
     <h4 class="font-semibold">Citty</h4>
     <p>A lightweight and powerful CLI framework for building command-line applications.</p>
@@ -62,7 +62,7 @@ Citty powers Solo Build's command-line interface, providing:
 ### Consola
 
 <div class="flex items-center mb-4">
-  <img src="/images/Design Kit Consola.svg" alt="Consola" class="h-12 mr-4">
+  <NuxtImg src="/images/DesignKitConsola.svg" alt="Consola" class="h-12 mr-4"/>
   <div>
     <h4 class="font-semibold">Consola</h4>
     <p>An elegant console logger for Node.js and browser applications.</p>
@@ -79,7 +79,7 @@ Consola is used throughout Solo Build for logging and reporting, offering:
 ### Defu
 
 <div class="flex items-center mb-4">
-  <img src="/images/Design Kit defu.svg" alt="Defu" class="h-12 mr-4">
+  <NuxtImg src="/images/DesignKitdefu.svg" alt="Defu" class="h-12 mr-4"/>
   <div>
     <h4 class="font-semibold">Defu</h4>
     <p>A utility for recursively merging default and user-provided configuration objects.</p>
@@ -95,7 +95,7 @@ Defu handles configuration merging in Solo Build, ensuring that:
 ### pkg-types
 
 <div class="flex items-center mb-4">
-  <img src="/images/Design Kit pkg types.svg" alt="pkg-types" class="h-12 mr-4">
+  <NuxtImg src="/images/DesignKitpkgtypes.svg" alt="pkg-types" class="h-12 mr-4"/>
   <div>
     <h4 class="font-semibold">pkg-types</h4>
     <p>Utilities for working with package.json files and Node.js packages.</p>
@@ -112,7 +112,7 @@ pkg-types helps Solo Build with:
 ### oxc
 
 <div class="flex items-center mb-4">
-  <img src="/images/Round Bubbles from JavaScript Oxidation Compiler.png" alt="oxc" class="h-12 mr-4">
+  <NuxtImg src="/images/RoundBubblesfromJavaScriptOxidationCompiler.png" alt="oxc" class="h-12 mr-4"/>
   <div>
     <h4 class="font-semibold">oxc</h4>
     <p>A JavaScript parser written in Rust, providing high-performance code analysis.</p>
