@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code Complexity Report</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid #ddd; padding: 8px; }
+      th { background-color: #f2f2f2; text-align: left; }
+      .high { background-color: #ffdddd; }
+      .medium { background-color: #ffffcc; }
+      .low { background-color: #ddffdd; }
+      .chart { margin-top: 30px; }
+    </style>
+  </head>
+  <body>
+    <h1>Code Complexity Report</h1>
+    
+    <div class="chart">
+      <h2>Top 10 Most Complex Files</h2>
+      <svg width="800" height="300" id="complexityChart"></svg>
+    </div>
+    
+    <h2>File Complexity Table</h2>
+    <table>
+      <tr>
+        <th>File</th>
+        <th>Complexity</th>
+        <th>Level</th>
+      </tr>
+      <% Object.entries(complexity)
+         .sort(([, a], [, b]) => b - a)
+         .forEach(([file, value]) => {
+           let level = 'low';
+           if (value > 15) level = 'high';
+           else if (value > 10) level = 'medium';
+      %>
+        <tr class="<%= level %>">
+          <td><%= file %></td>
+          <td><%= value %></td>
+          <td><%= level %></td>
+        </tr>
+      <% }); %>
+    </table>
+    
+    <script>
+      // D3 visualization would be here
+      // This can be replaced by a client-side rendered chart
+    </script>
+  </body>
+</html> 

@@ -9,353 +9,280 @@ The Reporter is a versatile component of the Solo Build system that formats and 
 
 ## Features
 
-- **Multiple Output Formats**: Supports various output formats including text, JSON, HTML, and Markdown
-- **Interactive Reports**: Generates interactive HTML reports with filtering and sorting capabilities
-- **Visual Data Representation**: Creates charts and graphs to visualize complexity metrics and dependencies
+- **Comprehensive Reports**: Detailed reports on build process, code quality, and performance
+- **Multiple Output Formats**: Supports JSON, HTML, and Markdown formats for all report types
+- **Interactive Visualizations**: Creates charts and graphs to visualize complexity metrics and dependencies
+- **Issue Summaries**: Provides detailed issue summaries with recommendations for improvement
+- **Performance Metrics**: Tracks and reports on build performance and optimization opportunities
 - **Customizable Templates**: Allows customization of report templates and styling
-- **Integration with CI/CD**: Provides CI/CD-friendly reporting formats and integrations
+- **CLI Integration**: Fully integrated with the Solo Build CLI
 
-## Usage
+## CLI Usage
 
-The Reporter can be used programmatically or through the CLI:
+The Reporter can be used directly through the CLI with the `analyze` and `report` commands:
 
-```typescript
-import { Reporter } from '@solo-build/reporter';
-import { Analyzer } from '@solo-build/analyzer';
+```bash
+# Generate all reports with default settings
+npx solo-build analyze --config solo-build.config.js
 
-// Create a reporter instance
-const reporter = new Reporter({
-  // Configuration options
-  format: 'html',
-  outputDir: 'reports',
-  theme: 'default'
-});
+# Specify report formats
+npx solo-build analyze --format html,json --config solo-build.config.js
 
-// Generate analysis data
-const analyzer = new Analyzer();
-const analysisResults = await analyzer.analyze('src/');
+# Generate only specific types of reports
+npx solo-build analyze --report-type complexity,dependencies --config solo-build.config.js
 
-// Generate a report
-const report = await reporter.generateReport('analysis', analysisResults, {
-  title: 'Code Analysis Report',
-  includeCharts: true
-});
+# Customize the output directory
+npx solo-build analyze --output-dir ./my-reports --config solo-build.config.js
 
-// Write the report to disk
-await reporter.writeReport(report);
-
-// Or get the report content as a string
-const reportContent = reporter.renderReport(report);
-console.log(reportContent);
+# Control visualizations
+npx solo-build analyze --visualizations true --config solo-build.config.js
 ```
 
-## Configuration Options
+After generating reports, you can manage them with the `report` command:
 
-| Option | Type | Description |
-|--------|------|-------------|
-| `format` | `'text' \| 'json' \| 'html' \| 'markdown'` | Output format (default: 'text') |
-| `outputDir` | `string` | Directory for report files (default: 'reports') |
-| `theme` | `'default' \| 'dark' \| 'light'` | Report theme (default: 'default') |
-| `verbose` | `boolean` | Include detailed information (default: false) |
-| `quiet` | `boolean` | Minimize output (default: false) |
-| `includeCharts` | `boolean` | Include charts in HTML reports (default: true) |
-| `templateDir` | `string` | Directory for custom templates |
+```bash
+# List all generated reports
+npx solo-build report list
+
+# Open a report in your browser
+npx solo-build report open --report build-summary.html
+```
+
+## Programmatic Usage
+
+The Reporter can also be used programmatically:
+
+```typescript
+import { Reporter } from "@solo-build/reporter";
+import { Analyzer } from "@solo-build/analyzer";
+
+// Create a reporter instance
+const reporter = new Reporter(config);
+
+// Generate analysis data
+const analyzer = new Analyzer(config);
+const analysisResult = await analyzer.analyze(parseResult.ast);
+
+// Generate reports
+const reports = await reporter.generateReports(analysisResult, {
+  duration: buildDuration,
+  stats: {
+    files: 25,
+    totalSize: 125000,
+    outputSize: 85000,
+    compressionRatio: 0.68,
+  },
+});
+
+console.log(`Generated ${reports.length} reports`);
+```
+
+## Configuration
+
+### Solo Build Config File
+
+You can configure the Reporter through your `solo-build.config.js` file:
+
+```javascript
+module.exports = {
+  // ... other configuration options
+
+  // Analysis configuration
+  analyze: {
+    complexity: true,
+    dependencies: true,
+    duplication: true,
+    security: true,
+  },
+
+  // Reporting configuration
+  reports: {
+    enabled: true, // Enable/disable reports
+    formats: ["html", "json", "markdown"], // Report formats
+    types: ["complexity", "issues", "dependencies", "performance"], // Report types
+    outputDir: "reports", // Output directory
+    includeVisualizations: true, // Include visualizations
+  },
+};
+```
+
+### Configuration Options
+
+| Option                          | Type       | Description                                                          |
+| ------------------------------- | ---------- | -------------------------------------------------------------------- |
+| `reports.enabled`               | `boolean`  | Enable/disable report generation                                     |
+| `reports.formats`               | `string[]` | Output formats (`html`, `json`, `markdown`)                          |
+| `reports.types`                 | `string[]` | Report types (`complexity`, `issues`, `dependencies`, `performance`) |
+| `reports.outputDir`             | `string`   | Directory for report files                                           |
+| `reports.includeVisualizations` | `boolean`  | Include visualizations in HTML reports                               |
 
 ## Report Types
 
-The Reporter supports several types of reports:
+The Reporter generates several types of reports:
 
-### Analysis Reports
+### Complexity Reports
 
-Analysis reports present the results of code analysis, including complexity metrics, dependencies, and issues:
+Complexity reports provide detailed metrics about your code's complexity:
 
-```typescript
-// Generate an analysis report
-const report = await reporter.generateReport('analysis', analysisResults, {
-  title: 'Code Analysis Report',
-  includeCharts: true,
-  sections: ['complexity', 'dependencies', 'issues']
-});
-```
+- Cyclomatic complexity per file
+- Relative complexity rankings
+- Complexity visualizations
+- Hot spots requiring refactoring
 
-### Build Reports
+### Issues Reports
 
-Build reports provide information about the build process, including build time, file sizes, and warnings:
+Issues reports identify problems in your codebase:
 
-```typescript
-// Generate a build report
-const report = await reporter.generateReport('build', buildResults, {
-  title: 'Build Report',
-  includeAssetSizes: true,
-  includeModuleGraph: true
-});
-```
+- Code issues with severity levels
+- Line numbers and locations
+- Suggested fixes
+- Issue categorization
 
-### Workflow Reports
+### Dependencies Reports
 
-Workflow reports show the status and results of workflow executions:
+Dependencies reports map relationships between modules:
 
-```typescript
-// Generate a workflow report
-const report = await reporter.generateReport('workflow', workflowResults, {
-  title: 'Workflow Execution Report',
-  includeTimeline: true,
-  includeJobDetails: true
-});
-```
+- Module dependencies
+- Dependency graphs
+- Circular dependency detection
+- External dependency analysis
 
-## API Reference
+### Performance Reports
 
-### Methods
+Performance reports analyze build and runtime performance:
 
-#### `generateReport(type: ReportType, data: any, options?: ReportOptions): Promise<Report>`
+- Build time analysis
+- File size metrics
+- Compression ratios
+- Optimization opportunities
 
-Generates a report of the specified type with the given data and options.
+### Summary Report
 
-#### `renderReport(report: Report): string`
+A comprehensive overview report that combines key insights from all report types:
 
-Renders a report to a string.
+- Overall codebase health score
+- Key issues and insights
+- Recommendations for improvement
+- Performance metrics
 
-#### `writeReport(report: Report, outputPath?: string): Promise<void>`
+## Report Formats
 
-Writes a report to disk.
+### HTML Format
 
-#### `registerTemplate(name: string, template: Template): void`
+HTML reports provide interactive, visually rich presentations:
 
-Registers a custom report template.
-
-### Types
-
-```typescript
-type ReportType = 'analysis' | 'build' | 'workflow' | 'custom';
-
-interface ReportOptions {
-  title?: string;
-  description?: string;
-  format?: 'text' | 'json' | 'html' | 'markdown';
-  theme?: 'default' | 'dark' | 'light';
-  includeCharts?: boolean;
-  sections?: string[];
-  [key: string]: any;
-}
-
-interface Report {
-  type: ReportType;
-  title: string;
-  description?: string;
-  data: any;
-  options: ReportOptions;
-  content?: string;
-  files?: ReportFile[];
-}
-
-interface ReportFile {
-  path: string;
-  content: string | Buffer;
-  type: 'main' | 'asset' | 'data';
-}
-
-interface Template {
-  render(data: any, options: ReportOptions): string | Promise<string>;
-  assets?: Record<string, string | Buffer>;
-}
-```
-
-## Output Formats
-
-### Text Format
-
-Text reports are designed for terminal output and provide a concise summary of the data:
-
-```
-Code Analysis Report
-===================
-
-Complexity Metrics:
-- Average Cyclomatic Complexity: 5.2
-- Average Cognitive Complexity: 7.8
-- Most Complex File: src/complex-file.ts (Cyclomatic: 25)
-
-Dependencies:
-- Total Dependencies: 45
-- Circular Dependencies: 2
-
-Issues:
-- Errors: 3
-- Warnings: 12
-- Info: 8
-```
+- Interactive charts and graphs
+- Filterable tables
+- Collapsible sections
+- Syntax highlighting
+- Visual indicators for severity levels
 
 ### JSON Format
 
-JSON reports provide structured data that can be easily processed by other tools:
+JSON reports provide structured data for programmatic processing:
 
-```json
-{
-  "title": "Code Analysis Report",
-  "type": "analysis",
-  "timestamp": "2023-06-15T14:30:00Z",
-  "data": {
-    "complexity": {
-      "average": {
-        "cyclomatic": 5.2,
-        "cognitive": 7.8
-      },
-      "files": [
-        {
-          "path": "src/complex-file.ts",
-          "cyclomatic": 25,
-          "cognitive": 32
-        }
-      ]
-    },
-    "dependencies": {
-      "total": 45,
-      "circular": 2
-    },
-    "issues": {
-      "errors": 3,
-      "warnings": 12,
-      "info": 8
+- Machine-readable format
+- Easily parseable by other tools
+- Complete structured data
+- Suitable for CI/CD integration
+
+### Markdown Format
+
+Markdown reports balance readability with simplicity:
+
+- Readable in text editors and GitHub
+- Tables and formatting for readability
+- Header-based navigation
+- Code blocks with syntax highlighting
+
+## Customizing Reports
+
+You can customize report templates by extending the Reporter class:
+
+```typescript
+class CustomReporter extends Reporter {
+  constructor(config) {
+    super(config);
+    // Override the template directory
+    this.templateDir = path.join(__dirname, "custom-templates");
+  }
+
+  // Override methods to customize report generation
+  async generateComplexityReport(analysis, format) {
+    // Custom implementation for complexity reports
+    if (format !== "html") {
+      return super.generateComplexityReport(analysis, format);
     }
+
+    // Custom HTML template implementation
+    // ...
   }
 }
 ```
 
-### HTML Format
-
-HTML reports provide rich, interactive presentations of the data with filtering, sorting, and visualization capabilities:
+Custom templates use EJS for templating:
 
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Code Analysis Report</title>
-  <link rel="stylesheet" href="report.css">
-  <script src="report.js"></script>
-</head>
-<body>
-  <header>
-    <h1>Code Analysis Report</h1>
-    <p>Generated on June 15, 2023</p>
-  </header>
-  <main>
-    <section id="complexity">
-      <h2>Complexity Metrics</h2>
-      <div class="chart" id="complexity-chart"></div>
-      <table id="complexity-table">
-        <!-- Complexity data -->
-      </table>
-    </section>
-    <!-- Other sections -->
-  </main>
-  <script>
-    // Initialize charts and tables
-  </script>
-</body>
+  <head>
+    <title>Custom Complexity Report</title>
+    <style>
+      /* Custom styles */
+    </style>
+  </head>
+  <body>
+    <h1>Code Complexity Report</h1>
+    <div class="summary">
+      <div class="metric">
+        <h3>Total Files</h3>
+        <div class="value"><%= Object.keys(complexity).length %></div>
+      </div>
+      <!-- More metrics -->
+    </div>
+    <!-- Report content -->
+  </body>
 </html>
 ```
 
-### Markdown Format
+## Visualizations
 
-Markdown reports provide a balance between readability and structure, suitable for documentation and GitHub:
+The Reporter includes several visualization types:
 
-```markdown
-# Code Analysis Report
+### Complexity Visualizations
 
-Generated on June 15, 2023
+- Bar charts showing relative complexity
+- Color-coded complexity ratings
+- File complexity rankings
 
-## Complexity Metrics
+### Dependency Visualizations
 
-| File | Cyclomatic | Cognitive |
-|------|------------|-----------|
-| src/complex-file.ts | 25 | 32 |
-| src/another-file.ts | 12 | 18 |
+- Force-directed dependency graphs
+- Interactive module relationship diagrams
+- Circular dependency highlighting
 
-Average Cyclomatic Complexity: 5.2
-Average Cognitive Complexity: 7.8
+### Performance Visualizations
 
-## Dependencies
+- Build time breakdown charts
+- Size comparison charts
+- Optimization opportunity indicators
 
-Total Dependencies: 45
-Circular Dependencies: 2
+## Examples
 
-## Issues
+Check the `examples` directory for detailed examples of using the Reporter:
 
-### Errors (3)
-
-- Error in src/file1.ts:25 - Missing return statement
-- Error in src/file2.ts:42 - Undefined variable 'config'
-- Error in src/file3.ts:78 - Type mismatch
-```
-
-## Custom Templates
-
-You can create custom report templates to customize the output format and styling:
-
-```typescript
-import { Reporter } from '@solo-build/reporter';
-
-// Create a custom HTML template
-const customTemplate = {
-  render(data, options) {
-    return `
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <title>${options.title || 'Report'}</title>
-        <style>
-          ${this.assets['styles.css']}
-        </style>
-      </head>
-      <body>
-        <header>
-          <h1>${options.title || 'Report'}</h1>
-          <p>Generated on ${new Date().toLocaleDateString()}</p>
-        </header>
-        <main>
-          <!-- Custom report content -->
-          <pre>${JSON.stringify(data, null, 2)}</pre>
-        </main>
-        <script>
-          ${this.assets['script.js']}
-        </script>
-      </body>
-      </html>
-    `;
-  },
-  assets: {
-    'styles.css': `
-      body { font-family: sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
-      header { margin-bottom: 30px; }
-      h1 { color: #333; }
-    `,
-    'script.js': `
-      console.log('Custom report loaded');
-    `
-  }
-};
-
-// Register the custom template
-const reporter = new Reporter();
-reporter.registerTemplate('custom-html', customTemplate);
-
-// Use the custom template
-const report = await reporter.generateReport('analysis', analysisResults, {
-  title: 'Custom Analysis Report',
-  template: 'custom-html'
-});
-```
+- `reporter-usage.ts` - Basic usage
+- `using-in-build-pipeline.ts` - Integration with build pipeline
+- `customizing-reports.ts` - Custom templates and report formats
+- `cli-usage.md` - Complete CLI usage guide
 
 ## CI/CD Integration
 
-The Reporter integrates with CI/CD systems to provide build and analysis reports:
-
-### GitHub Actions Integration
+The Reporter is designed to work well with CI/CD systems:
 
 ```yaml
-# .github/workflows/build.yml
-name: Build and Analyze
+# .github/workflows/analyze.yml
+name: Code Analysis
 
 on:
   push:
@@ -364,54 +291,19 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  analyze:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: "16"
       - run: npm install
-      - run: npx solo analyze --reporter=github
-      - run: npx solo build --reporter=github
+      - name: Run analysis
+        run: npx solo-build analyze --format json,html --output-dir ./reports
+      - name: Upload reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-reports
+          path: reports/
 ```
-
-### Jenkins Integration
-
-```groovy
-// Jenkinsfile
-pipeline {
-  agent any
-  stages {
-    stage('Build and Analyze') {
-      steps {
-        sh 'npm install'
-        sh 'npx solo analyze --reporter=jenkins --output-dir=reports'
-        sh 'npx solo build --reporter=jenkins --output-dir=reports'
-      }
-      post {
-        always {
-          publishHTML(target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: true,
-            keepAll: true,
-            reportDir: 'reports',
-            reportFiles: 'analysis.html,build.html',
-            reportName: 'Solo Build Reports'
-          ])
-        }
-      }
-    }
-  }
-}
-```
-
-## Integration with Other Components
-
-The Reporter works closely with other Solo Build components:
-
-- **Analyzer**: Formats and presents analysis results
-- **Transformer**: Reports on transformations applied to the code
-- **Generator**: Reports on generated output files and sizes
-- **Workflow Engine**: Reports on workflow execution status and results
-- **Task Runner**: Reports on task execution status and performance

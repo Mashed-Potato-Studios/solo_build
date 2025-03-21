@@ -1,6 +1,6 @@
 {
   "name": "@mps/solo-build",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "AI-powered build system with architectural awareness and CI capabilities",
   "main": "dist/src/index.js",
   "bin": {
@@ -25,7 +25,10 @@
     "javascript",
     "analyzer",
     "parser",
-    "workflow"
+    "workflow",
+    "reports",
+    "visualization",
+    "code quality"
   ],
   "author": "Mashed Potato Studios",
   "license": "MIT",
@@ -33,7 +36,8 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "examples"
   ],
   "repository": {
     "type": "git",
@@ -49,9 +53,12 @@
   "devDependencies": {
     "@types/babel__traverse": "^7.20.1",
     "@types/consola": "^2.2.5",
+    "@types/d3": "^7.4.3",
+    "@types/ejs": "^3.1.5",
     "@types/glob": "^8.1.0",
     "@types/jest": "^29.5.3",
     "@types/js-yaml": "^4.0.5",
+    "@types/marked": "^5.0.2",
     "@types/node": "^20.4.5",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
@@ -72,10 +79,14 @@
     "citty": "^0.1.4",
     "clipboardy": "^3.0.0",
     "consola": "^3.2.3",
+    "d3": "^7.9.0",
     "defu": "^6.1.2",
+    "ejs": "^3.1.10",
     "glob": "^10.3.3",
     "js-yaml": "^4.1.0",
     "langchain": "^0.0.96",
+    "marked": "^15.0.7",
+    "open": "^10.1.0",
     "openai": "^4.0.0",
     "oxc-parser": "^0.60.0",
     "oxc-transform": "^0.60.0",

@@ -39,6 +39,14 @@ Solo Build provides a powerful CLI for interacting with the build system:
 - `solo analyze`: Analyze code architecture
 - `solo workflow`: Manage workflows
 
+## CLI Commands
+
+- [Run](/docs/cli-run) - Execute the build process
+- [Init](/docs/cli-init) - Create a new Solo Build project
+- [Analyze](/docs/cli-analyze) - Analyze code and generate reports
+- [Report](/docs/cli-report) - Manage and view generated reports
+- [Workflow](/docs/cli-workflow) - Manage workflows
+
 ## Contributing
 
 Solo Build is an open-source project, and we welcome contributions from the community. Please see our [Contributing Guide](https://github.com/Mashed-Potato-Studios/solo_build/blob/main/CONTRIBUTING.md) for more information.

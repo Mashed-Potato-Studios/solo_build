@@ -1,6 +1,6 @@
 # Analyze Command
 
-The `analyze` command runs Solo Build's analysis phase on your project without executing the full build process, providing insights into your code's structure, complexity, and potential issues.
+The `analyze` command runs Solo Build's analysis phase on your project without executing the full build process, providing insights into your code's structure, complexity, and potential issues. It also generates comprehensive reports in various formats.
 
 ## Usage
 
@@ -10,104 +10,149 @@ solo-build analyze [options] [files...]
 
 ## Options
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `--config`, `-c` | `string` | `solo-build.config.js` | Path to the configuration file |
-| `--output`, `-o` | `string` | `./solo-build-analysis` | Output directory for analysis reports |
-| `--format`, `-f` | `string` | `html` | Output format (html, json, markdown) |
-| `--verbose`, `-v` | `boolean` | `false` | Enable verbose logging |
-| `--no-ai` | `boolean` | `false` | Disable AI analysis features |
-| `--depth`, `-d` | `number` | `3` | Maximum depth for dependency analysis |
+| Option             | Type      | Default                | Description                                                                                    |
+| ------------------ | --------- | ---------------------- | ---------------------------------------------------------------------------------------------- |
+| `--config`, `-c`   | `string`  | `solo-build.config.js` | Path to the configuration file                                                                 |
+| `--format`         | `string`  | `all`                  | Report formats to generate (comma-separated: html,json,markdown,all)                           |
+| `--report-type`    | `string`  | `all`                  | Types of reports to generate (comma-separated: complexity,issues,dependencies,performance,all) |
+| `--output-dir`     | `string`  | `reports`              | Directory to output reports                                                                    |
+| `--visualizations` | `boolean` | `true`                 | Whether to include visualizations in reports                                                   |
+| `--verbose`, `-v`  | `boolean` | `false`                | Enable verbose logging                                                                         |
+| `--no-ai`          | `boolean` | `false`                | Disable AI analysis features                                                                   |
 
 ## Description
 
-The `analyze` command performs a comprehensive analysis of your codebase, focusing on:
+The `analyze` command performs a comprehensive analysis of your codebase and generates detailed reports, focusing on:
 
 1. **Code Complexity**: Calculates cyclomatic complexity, cognitive complexity, and maintainability index
 2. **Dependencies**: Maps internal and external dependencies, identifying potential issues
 3. **Code Issues**: Detects code smells, potential bugs, and architectural problems
 4. **Architecture**: Analyzes the overall structure of your application
-5. **AI Insights**: Provides AI-powered suggestions for code improvements (if enabled)
+5. **Performance**: Analyzes build performance and optimization opportunities
+6. **AI Insights**: Provides AI-powered suggestions for code improvements (if enabled)
 
-This command is useful when you want to understand your codebase better without making any changes to it.
+## Reports Generated
 
-## Analysis Metrics
+The analyze command generates several types of reports:
 
-Solo Build's analyzer provides several key metrics:
+| Report Type  | Description                                               |
+| ------------ | --------------------------------------------------------- |
+| Complexity   | Detailed metrics about your code's complexity             |
+| Issues       | Identified problems in your codebase with severity levels |
+| Dependencies | Relationships between modules and components              |
+| Performance  | Build time and optimization analysis                      |
+| Summary      | Comprehensive overview with score and recommendations     |
 
-| Metric | Description |
-|--------|-------------|
-| Complexity Score | Overall complexity rating of your codebase |
-| Dependency Count | Number of internal and external dependencies |
-| Issue Count | Number of detected code issues |
-| Maintainability Index | Score indicating how maintainable your code is |
-| Duplication Percentage | Percentage of duplicated code |
+Each report can be generated in multiple formats:
+
+| Format   | Description                                                        |
+| -------- | ------------------------------------------------------------------ |
+| HTML     | Interactive reports with visualizations and filtering capabilities |
+| JSON     | Machine-readable structured data for programmatic processing       |
+| Markdown | Human-readable text-based reports for documentation                |
 
 ## Examples
 
 ### Basic Usage
 
 ```bash
-# Analyze the entire project
+# Analyze the entire project with default settings
 solo-build analyze
 ```
 
-### Analyzing Specific Files
+### Specifying Report Formats
 
 ```bash
-# Analyze only specific files or directories
-solo-build analyze src/components src/utils/helpers.js
+# Generate only HTML and JSON reports
+solo-build analyze --format html,json
 ```
 
-### Custom Output Format
+### Specifying Report Types
 
 ```bash
-# Generate analysis in JSON format
-solo-build analyze --format json
+# Generate only complexity and dependencies reports
+solo-build analyze --report-type complexity,dependencies
 ```
 
-### Custom Output Location
+### Custom Output Directory
 
 ```bash
 # Specify a custom output directory
-solo-build analyze --output ./analysis-reports
+solo-build analyze --output-dir ./analysis-reports
 ```
 
-### Detailed Analysis
+### Controlling Visualizations
 
 ```bash
-# Perform a deeper dependency analysis
-solo-build analyze --depth 5
+# Disable visualizations in reports
+solo-build analyze --visualizations false
 ```
 
-### Disable AI Features
+### Complete Example
 
 ```bash
-# Run analysis without AI-powered insights
-solo-build analyze --no-ai
+# Complete example with multiple options
+solo-build analyze \
+  --config solo-build.config.js \
+  --format html,json \
+  --report-type complexity,issues,dependencies \
+  --output-dir ./reports \
+  --visualizations true \
+  --verbose
 ```
 
-## Output
+## Configuration
 
-The analysis report includes:
+You can also configure analysis and reporting options in your `solo-build.config.js` file:
 
-- **Summary**: Overview of key metrics
-- **Complexity Analysis**: Detailed complexity metrics for each file
-- **Dependency Graph**: Visual representation of dependencies
-- **Issue List**: Detailed list of detected issues with severity levels
-- **Recommendations**: Suggested improvements (including AI-powered suggestions if enabled)
+```javascript
+module.exports = {
+  // ... other configuration options
 
-## Integration with TypeScript
+  // Analysis configuration
+  analyze: {
+    complexity: true,
+    dependencies: true,
+    duplication: true,
+    security: true,
+  },
 
-Solo Build's analyzer works seamlessly with TypeScript projects, providing additional type-based insights:
+  // Reporting configuration
+  reports: {
+    enabled: true,
+    formats: ["html", "json", "markdown"],
+    types: ["complexity", "issues", "dependencies", "performance"],
+    outputDir: "reports",
+    includeVisualizations: true,
+  },
+};
+```
+
+## Viewing Reports
+
+After generating reports, you can view them using the `report` command:
 
 ```bash
-# Analyze a TypeScript project with type checking
-solo-build analyze --typescript
+# List all generated reports
+solo-build report list
+
+# Open a report in your browser
+solo-build report open --report build-summary.html
 ```
+
+## Report Outputs
+
+The analysis reports include:
+
+- **Summary Report**: Overview of key metrics with architecture score
+- **Complexity Reports**: Detailed complexity metrics for each file
+- **Dependency Visualizations**: Interactive graphs of module relationships
+- **Issue Lists**: Detailed information on detected issues
+- **Performance Metrics**: Build time analysis and optimization opportunities
+- **Recommendations**: Suggested improvements with AI-powered insights
 
 ## Related Commands
 
+- [`report`](/docs/cli-report): Manage and view generated reports
 - [`run`](/docs/cli-run): Run the full Solo Build process
 - [`init`](/docs/cli-init): Initialize a new Solo Build project
-- [`workflow`](/docs/cli-workflow): Manage Solo Build workflows
